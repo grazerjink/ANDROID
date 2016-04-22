@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">总台检擦</string>
+    <string name="tieu_de">详细内容</string>
+    <string name="nha_mang">总台</string>
+    <string name="ngon_ngu">语言</string>
+    <string name="vung">区域</string>
+    <string name="get_nha_mang">没有</string>
+    <string name="get_ngon_ngu">中文</string>
+    <string name="get_vung">越南</string>
+</resources>

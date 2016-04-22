@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NHÀ MẠNG</string>
+    <string name="tieu_de">THÔNG TIN NHÀ MẠNG</string>
+    <string name="nha_mang">Nhà mạng</string>
+    <string name="ngon_ngu">Ngôn ngữ</string>
+    <string name="vung">Vùng</string>
+    <string name="get_nha_mang">Chưa có</string>
+    <string name="get_ngon_ngu">Tiếng Việt</string>
+    <string name="get_vung">Việt Nam</string>
+</resources>

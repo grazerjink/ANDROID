@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NETWORK</string>
+    <string name="tieu_de">Network Information</string>
+    <string name="nha_mang">Your Network</string>
+    <string name="ngon_ngu">Language</string>
+    <string name="vung">Region</string>
+    <string name="get_nha_mang">No Simcard</string>
+    <string name="get_ngon_ngu">English</string>
+    <string name="get_vung">Viet Nam</string>
+</resources>
