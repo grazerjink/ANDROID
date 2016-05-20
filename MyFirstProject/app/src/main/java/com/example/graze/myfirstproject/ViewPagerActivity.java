@@ -1,5 +1,6 @@
 package com.example.graze.myfirstproject;
 
+import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -20,8 +21,11 @@ public class ViewPagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pager);
         ButterKnife.bind(this);
-        MyViewPagerAdapter adapter = new MyViewPagerAdapter(getFragmentManager());
-        viewPager.setAdapter(adapter);
-        tab.setupWithViewPager(viewPager);
+        SharedPreferences sharedPreferences = getSharedPreferences("sharedRef",MODE_PRIVATE);
+
+            MyViewPagerAdapter adapter = new MyViewPagerAdapter(getFragmentManager());
+            viewPager.setAdapter(adapter);
+            tab.setupWithViewPager(viewPager);
+
     }
 }
