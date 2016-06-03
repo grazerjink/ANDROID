@@ -1,7 +1,6 @@
-package com.example.graze.mydatabasedemo;
+package com.example.graze.mydatabasedemo.sample1_2;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,10 +11,12 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.graze.mydatabasedemo.Country;
+import com.example.graze.mydatabasedemo.ListViewAdapter;
+import com.example.graze.mydatabasedemo.R;
+
 import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -128,21 +129,18 @@ public class ListViewMainActivity extends AppCompatActivity implements View.OnCl
         return contentValues;
     }
 
-    String lastestNameEn;
-
     void insertData() {
         //Buoc 1 mo file
         SQLiteDatabase database = openDB();
         //Init noi dung doi tuong can them
         Country country = new Country();
         long time = System.currentTimeMillis();
-        country.setNameEn("Name English" + time);
-        country.setNameVi("Ten Tieng Viet" + time);
+        country.setNameEn("NameEnglish " + time);
+        country.setNameVi("TiengViet " + time);
         country.setFlag("scotland");
         country.setPopulation(time);
         //Tien hanh them du lieu
         database.insert(Country.TABLE_NAME, null, getContentValues(country));
-        lastestNameEn = country.getNameEn();
         database.close();
     }
     long _ID;
@@ -177,8 +175,8 @@ public class ListViewMainActivity extends AppCompatActivity implements View.OnCl
         //buoc 2: update
         Country country = new Country();
         long time = System.currentTimeMillis();
-        country.setNameEn("English Name" + time);
-        country.setNameVi("Tieng Viet" + time);
+        country.setNameEn("English " + time);
+        country.setNameVi("Tieng_Viet " + time);
         country.setFlag("unitedkingdom");
         country.setPopulation(time);
 

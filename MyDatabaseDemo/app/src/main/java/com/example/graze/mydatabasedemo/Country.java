@@ -12,6 +12,14 @@ public class Country {
     public static final String COL_FLAG = "flag";
     public static final String COL_POPULATION = "population";
 
+    public final static String CREATE_TABLE = "create table if not exists " +TABLE_NAME+"("
+            + COL_ID + " integer primary key, "
+            + COL_NAME_EN  + " text, "
+            + COL_NAME_VI + " text, "
+            + COL_FLAG + " text, "
+            + COL_POPULATION + " long)";
+    public final static String DROP_TABLE = "drop table if exists " + TABLE_NAME;
+
     long _id;
     String nameEn;
     String nameVi;
