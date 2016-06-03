@@ -43,7 +43,7 @@ public class ListViewAdapter extends ArrayAdapter {
 
         viewHolder.nameEn.setText(mCountries.get(position).getNameEn());
         viewHolder.nameVi.setText(mCountries.get(position).getNameVi());
-        int id = mContext.getResources().getIdentifier(mCountries.get(position).getFlag(),"drawble",mContext.getPackageName());
+        int id = mContext.getResources().getIdentifier(mCountries.get(position).getFlag(),"drawable",mContext.getPackageName());
         viewHolder.flag.setImageResource(id);
         return convertView;
     }
