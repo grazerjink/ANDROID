@@ -24,6 +24,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,7 @@ import graze.mydemocontacts.model.Contact;
 import graze.mydemocontacts.model.Email;
 import graze.mydemocontacts.model.Phone;
 
-public class ListContactsActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class ListContactsActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, Serializable {
 
     //List<String> name;
     ListView listView;
@@ -60,56 +61,18 @@ public class ListContactsActivity extends AppCompatActivity implements SearchVie
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                List<String> phone_array = null;
-                List<String> email_array = null;
-                ContentResolver contentResolver = getContentResolver();
-                Cursor cursor = contentResolver.query(ContactsContract.Data.CONTENT_URI,
-//                        null, ContactsContract.Data._ID + "= ?",
-                        null, ContactsContract.Data.RAW_CONTACT_ID + "= ?",
-                        new String[]{contacts.get(position).get_id()+""},
-                        null, null);
-                if(cursor!= null){
-                    if(cursor.moveToFirst()){
-                        do{
-                            //kiem tra mime_type --> record thuoc loai nao
-                            String mimeType = cursor.getString(cursor.getColumnIndex(ContactsContract.Data.MIMETYPE));
-                            switch (mimeType){
-                                case ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE:
-                                    Phone phone = new Phone();
-                                    phone.setNumber(cursor.getString(
-                                            cursor.getColumnIndex(
-                                                    ContactsContract.CommonDataKinds.Phone.NUMBER)));
-                                    phone.setType(cursor.getInt(
-                                            cursor.getColumnIndex(
-                                                    ContactsContract.CommonDataKinds.Phone.TYPE)));
-                                    //TODO: chuyen type tu int --> string
-                                    phone_array = new ArrayList<String>();
-                                    phone_array.add(String.valueOf(phone));
-                                    break;
-                                case ContactsContract.CommonDataKinds.Email.CONTENT_ITEM_TYPE:
-                                    //TODO: get thong tin email
-                                    Email email = new Email();
-                                    email.setAddress(cursor.getString
-                                            (cursor.getColumnIndex(
-                                                    ContactsContract.CommonDataKinds.Email.ADDRESS)));
-                                    email.setType(cursor.getInt(
-                                            cursor.getColumnIndex(
-                                                    ContactsContract.CommonDataKinds.Email.TYPE)));
-                                    email_array = new ArrayList<String>();
-                                    email_array.add(String.valueOf(email));
-                                    break;
-                            }
-                            //TODO: startActivity(detail contact)
-                        }while (cursor.moveToNext());
-                    }
-                }
                 Bundle bundle = new Bundle();
-                bundle.putStringArrayList("phone", (ArrayList<String>) phone_array);
-                bundle.putStringArrayList("email", (ArrayList<String>) email_array);
-                Intent itentRequest = new Intent(ListContactsActivity.this,ItemInfoActivity.class);
-                startActivityForResult(itentRequest,1,bundle);
+                bundle.putLong("_ID", contacts.get(position).get_id());
+                Intent intentRequest = new Intent(ListContactsActivity.this, ItemInfoActivity.class);
+                intentRequest.putExtra("mypackage", bundle);
+                startActivity(intentRequest);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -145,7 +108,7 @@ public class ListContactsActivity extends AppCompatActivity implements SearchVie
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        getMenuInflater().inflate(R.menu.menu_context_list_contact,menu);
+        getMenuInflater().inflate(R.menu.menu_context_list_contact, menu);
     }
 
     @Override
@@ -173,15 +136,15 @@ public class ListContactsActivity extends AppCompatActivity implements SearchVie
         name.add("Anh16");
     }*/
 
-    void initData(){
+    void initData() {
         ContentResolver contentResolver = getContentResolver();
         Cursor cursor = contentResolver.query(ContactsContract.RawContacts.CONTENT_URI
-                ,new String[]{ContactsContract.RawContacts._ID,
-                        ContactsContract.RawContacts.DISPLAY_NAME_PRIMARY},null,null,null,null);
+                , new String[]{ContactsContract.RawContacts._ID,
+                        ContactsContract.RawContacts.DISPLAY_NAME_PRIMARY}, null, null, null, null);
         contacts = new ArrayList<>();
         displayNames = new ArrayList<>();
-        if(cursor != null){
-            if(cursor.moveToFirst()){
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
                 do {
                     Contact contact = new Contact();
                     contact.set_id(cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID)));
@@ -189,7 +152,7 @@ public class ListContactsActivity extends AppCompatActivity implements SearchVie
 
                     contacts.add(contact);
                     displayNames.add(contact.getDisplayName());
-                }while (cursor.moveToNext());
+                } while (cursor.moveToNext());
             }
         }
     }
@@ -201,12 +164,13 @@ public class ListContactsActivity extends AppCompatActivity implements SearchVie
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        if (TextUtils.isEmpty(newText)){
+        if (TextUtils.isEmpty(newText)) {
             adapter.getFilter().filter("");
             listView.clearTextFilter();
-        }else {
-            adapter.getFilter().filter(newText.toString());
+        } else {
+            adapter.getFilter().filter(newText);
         }
+        //adapter.getFilter().filter(newText);
         return true;
     }
 }

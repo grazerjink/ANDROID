@@ -23,4 +23,3 @@ public class Phone  {
         this.type = type;
     }
 }
-

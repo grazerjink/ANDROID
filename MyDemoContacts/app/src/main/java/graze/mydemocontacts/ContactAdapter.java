@@ -7,10 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Filter;
 import android.widget.TextView;
 
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -23,12 +25,43 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
     Context mContext;
     int mResource;
     List<Contact> mContacts;
+    List<Contact> mContactsOriginal;
 
     public ContactAdapter(Context context, int resource, List<Contact> objects) {
         super(context, resource, objects);
         mContext = context;
         mResource = resource;
         mContacts = objects;
+        mContactsOriginal = new ArrayList<>(mContacts);
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                //tim kiem item chua tu khoa can tim (constraint)
+                FilterResults filterResults = new FilterResults();
+                List<Contact> temp = new ArrayList<>();
+                Log.d("TAG", "performFiltering: "+constraint);
+                for (Contact ct : mContactsOriginal) {
+
+                    if(ct.getDisplayName().toUpperCase().contains(constraint.toString().toUpperCase()))
+                        temp.add(ct);
+                }
+                //Sau khi tim kiem thi tra ket qua cho publicResults
+                filterResults.values = temp;
+                filterResults.count = temp.size();
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                mContacts.clear();
+                mContacts.addAll((List<Contact>)results.values);
+                notifyDataSetChanged();
+            }
+        };
     }
 
     @Override
