@@ -9,40 +9,15 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="graze.mydemocontacts.ListContactsActivity"
+    tools:context=".view.ListContactsActivity"
     tools:showIn="@layout/activity_list_contacts">
 
-    <LinearLayout
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:id="@+id/listview"
+        tools:listitem="@layout/item_list_contacts">
 
-        <TextView
-            android:id="@+id/tvLetter"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
-            tools:text="A"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
-
-        <ImageView
-            android:id="@+id/ivLetter"
-            android:layout_marginLeft="25dp"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/alpha" />
-
-        <TextView
-            android:id="@+id/tvContactName"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
-            tools:text="Contact's name"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
-    </LinearLayout>
+    </ListView>
 
 </RelativeLayout>

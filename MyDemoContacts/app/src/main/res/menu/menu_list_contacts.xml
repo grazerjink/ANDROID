@@ -1,10 +1,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="graze.mydemocontacts.ListContactsActivity">
+    tools:context=".view.ListContactsActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/mnSearch"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="Search"
+        android:icon="@android:drawable/ic_search_category_default"
+        app:showAsAction="always|collapseActionView"
+        app:actionViewClass="android.support.v7.widget.SearchView" />
+    <item
+        android:id="@+id/mnInsert"
+        android:orderInCategory="100"
+        android:icon="@android:drawable/ic_input_add"
+        app:showAsAction="always"
+        android:title="Insert" />
+    <item
+        android:id="@+id/mnRefesh"
+        android:orderInCategory="100"
+        android:title="Refesh"
+        android:icon="@drawable/ic_action_name"
         app:showAsAction="never" />
 </menu>

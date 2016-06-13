@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/cmnUpdate"
+        android:title="Update"
+        android:icon="@drawable/ic_action_name"/>
+    <item
+        android:id="@+id/cmnDelete"
+        android:title="Delete"
+        android:icon="@android:drawable/ic_delete"/>
+</menu>
