@@ -81,17 +81,17 @@ public class MyAdapter extends ArrayAdapter {
 
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
-//                mCountry.clear();
-//                mCountry.addAll((List<String>) results.values);
-//                notifyDataSetChanged();
+                /*mCountry.clear();
+                mCountry.addAll((ArrayList<String>) results.values);
+                notifyDataSetChanged();*/
                 ArrayList<String> filteredList = (ArrayList<String>) results.values;
                 if (results != null && results.count > 0) {
-                    clear();
+                    mCountry.clear();
                     for (String c : filteredList) {
-                        add(c);
+                        mCountry.add(c);
                     }
-                    notifyDataSetChanged();
                 }
+                notifyDataSetChanged();
             }
         };
     }
