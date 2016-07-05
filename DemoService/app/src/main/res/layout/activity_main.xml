@@ -10,27 +10,34 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="app.graze.demoservice.MainActivity">
 
-    <Button
-        android:id="@+id/btnDownload"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/edtFirst"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Download"
-        android:background="@drawable/button_state_color"
-        android:textColor="#890009"/>
+        android:hint="Nhap vao so thu nhat" />
+
+    <EditText
+        android:id="@+id/edtSecond"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="Nhap vao so thu hai" />
 
     <TextView
-        android:id="@+id/tvInfo"
-        android:layout_marginTop="10dp"
+        android:id="@+id/tvKetQua"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:hint="Ket Qua Phep Tinh Hieu 2 so"
+        android:textColor="#FF0000"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/btnTinh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nothing to do...!"
-        android:textColor="#1038ff"
-        android:textSize="20sp"/>
+        android:layout_marginTop="20dp"
+        android:text="CALCULATE"
+        android:onClick="Tinh"/>
 
-    <!--<Button-->
-        <!--android:id="@+id/btnStop"-->
-        <!--android:layout_marginLeft="20dp"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Stop music" />-->
 </LinearLayout>
