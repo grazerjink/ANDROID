@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f7fdff"
+    android:gravity="center|top"
+    android:orientation="vertical"
+    android:padding="25dp"
+    tools:context="app.kjproducts.apiservice.LoginActivity">
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="95dp"
+        android:background="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/edtUserName"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="23dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:hint="Email"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/edtPass"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="13dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="15dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:onClick="doLogin"
+            android:text="SIGN IN"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnLoginWithFB"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="18dp"
+            android:background="#3F51B5"
+            android:elevation="4dp"
+            android:onClick="doLoginWithFB"
+            android:text="SIGN IN WITH FACEBOOK"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>
