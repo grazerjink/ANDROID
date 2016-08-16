@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -8,24 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="MyCustomTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/primary_color</item>
-        <item name="colorPrimaryDark">@color/primaryDark_color</item>
-        <item name="colorAccent">@color/accent_color</item>
+    <style name="MyTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/GreenYonex</item>
+        <item name="colorPrimaryDark">@color/DarkGreenYonex</item>
+        <item name="colorAccent">@color/White</item>
     </style>
 
-    <style name="CustomNoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimaryDark">@color/primaryDark_color</item>
-        <item name="colorAccent">@color/cardview_light_background</item>
+    <style name="MyThemeNoActionBar" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="colorPrimary">@color/GreenYonex</item>
+        <item name="colorPrimaryDark">@color/DarkGreenYonex</item>
     </style>
 
-    <style name="AppearanceForToolbar" parent="TextAppearance.Design.Tab">
-        <item name="android:textSize">20sp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="AppearanceForTabLayout" parent="TextAppearance.Design.Tab">
-        <item name="android:textSize">24sp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
 </resources>

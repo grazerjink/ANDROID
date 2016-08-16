@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/giveIdea"
+        android:icon="@drawable/give_ideas"
+        android:title="Give me ideas"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/listIdea"
+        android:icon="@drawable/view_list_ideas"
+        android:title="List Ideas"
+        app:showAsAction="always" />
+</menu>

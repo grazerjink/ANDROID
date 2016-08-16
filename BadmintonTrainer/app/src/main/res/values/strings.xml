@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Badminton Trainer</string>
+    <string name="main"><b>Bài tập hướng dẫn</b></string>
+    <string name="content"><b>Nội dung chi tiết</b></string>
+    <string name="list_idea"><b>Danh sách ý kiến</b></string>
+    <string name="give_idea"><font fgcolor="#4CAF50"><b>Ý kiến của bạn</b></font></string>
 </resources>

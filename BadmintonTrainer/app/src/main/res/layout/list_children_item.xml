@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:orientation="horizontal"
+    android:background="#EFEFEE"
+    android:padding="5dp"
+    android:id="@+id/linearContainer"
+    android:layout_marginBottom="4dp">
+
+    <ImageView
+        android:id="@+id/imgLabel"
+        android:layout_gravity="center"
+        android:layout_width="120dp"
+        android:layout_height="62dp"
+        android:layout_marginLeft="5dp"/>
+
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        tools:text="Chi tiet bai hoc" />
+</LinearLayout>
